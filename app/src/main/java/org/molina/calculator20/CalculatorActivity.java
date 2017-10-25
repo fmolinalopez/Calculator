@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class CalculatorActivity extends AppCompatActivity {
 
@@ -18,7 +17,7 @@ public class CalculatorActivity extends AppCompatActivity {
     private Button btn_negative;
     private Button btn_dot;
     private Button btn_equals;
-    private Button btn_equals2;
+//    private Button btn_equals2;
 
     //Botones de borrado y reinicio.
     private Button btn_delete;
@@ -36,7 +35,7 @@ public class CalculatorActivity extends AppCompatActivity {
     private Button bnt_nine;
     private Button bnt_zero;
 
-    private EditText et_number;
+    private TextView tw_number;
 
     //Variable que almacena los numeros con los que se operaran.
     private String txtNumber;
@@ -73,7 +72,7 @@ public class CalculatorActivity extends AppCompatActivity {
         //Inicializacion de variables
         testResult = (TextView)findViewById(R.id.test);
 
-        et_number = (EditText)findViewById(R.id.etNumber);
+        tw_number = (TextView) findViewById(R.id.etNumber);
 
         bnt_one = (Button)findViewById(R.id.btnOne);
         bnt_two = (Button)findViewById(R.id.btnTwo);
@@ -96,7 +95,7 @@ public class CalculatorActivity extends AppCompatActivity {
         btn_negative = (Button)findViewById(R.id.btnNegative);
         btn_dot = (Button)findViewById(R.id.btnDot);
         btn_equals = (Button)findViewById(R.id.btnEquals);
-        btn_equals2 = (Button)findViewById(R.id.btnEquals2);
+        //btn_equals2 = (Button)findViewById(R.id.btnEquals2);
 
         num = 0;
         txtNumber = "";
@@ -111,7 +110,7 @@ public class CalculatorActivity extends AppCompatActivity {
             public void onClick(View v) {
                 functionCheck();
                 txtNumber += 1;
-                et_number.setText(txtNumber);
+                tw_number.setText(txtNumber);
             }
         });
         bnt_two.setOnClickListener(new View.OnClickListener() {
@@ -119,7 +118,7 @@ public class CalculatorActivity extends AppCompatActivity {
             public void onClick(View v) {
                 functionCheck();
                 txtNumber += 2;
-                et_number.setText(txtNumber);
+                tw_number.setText(txtNumber);
             }
         });
         bnt_three.setOnClickListener(new View.OnClickListener() {
@@ -127,7 +126,7 @@ public class CalculatorActivity extends AppCompatActivity {
             public void onClick(View v) {
                 functionCheck();
                 txtNumber += 3;
-                et_number.setText(txtNumber);
+                tw_number.setText(txtNumber);
             }
         });
         bnt_four.setOnClickListener(new View.OnClickListener() {
@@ -135,7 +134,7 @@ public class CalculatorActivity extends AppCompatActivity {
             public void onClick(View v) {
                 functionCheck();
                 txtNumber += 4;
-                et_number.setText(txtNumber);
+                tw_number.setText(txtNumber);
             }
         });
         bnt_five.setOnClickListener(new View.OnClickListener() {
@@ -143,7 +142,7 @@ public class CalculatorActivity extends AppCompatActivity {
             public void onClick(View v) {
                 functionCheck();
                 txtNumber += 5;
-                et_number.setText(txtNumber);
+                tw_number.setText(txtNumber);
             }
         });
         bnt_six.setOnClickListener(new View.OnClickListener() {
@@ -151,7 +150,7 @@ public class CalculatorActivity extends AppCompatActivity {
             public void onClick(View v) {
                 functionCheck();
                 txtNumber += 6;
-                et_number.setText(txtNumber);
+                tw_number.setText(txtNumber);
             }
         });
         bnt_seven.setOnClickListener(new View.OnClickListener() {
@@ -159,7 +158,7 @@ public class CalculatorActivity extends AppCompatActivity {
             public void onClick(View v) {
                 functionCheck();
                 txtNumber += 7;
-                et_number.setText(txtNumber);
+                tw_number.setText(txtNumber);
             }
         });
         bnt_eight.setOnClickListener(new View.OnClickListener() {
@@ -167,7 +166,7 @@ public class CalculatorActivity extends AppCompatActivity {
             public void onClick(View v) {
                 functionCheck();
                 txtNumber += 8;
-                et_number.setText(txtNumber);
+                tw_number.setText(txtNumber);
             }
         });
         bnt_nine.setOnClickListener(new View.OnClickListener() {
@@ -175,7 +174,7 @@ public class CalculatorActivity extends AppCompatActivity {
             public void onClick(View v) {
                 functionCheck();
                 txtNumber += 9;
-                et_number.setText(txtNumber);
+                tw_number.setText(txtNumber);
             }
         });
         bnt_zero.setOnClickListener(new View.OnClickListener() {
@@ -183,7 +182,7 @@ public class CalculatorActivity extends AppCompatActivity {
             public void onClick(View v) {
                 functionCheck();
                 txtNumber += 0;
-                et_number.setText(txtNumber);
+                tw_number.setText(txtNumber);
             }
         });
 
@@ -205,7 +204,7 @@ public class CalculatorActivity extends AppCompatActivity {
                     txtNumber = "-";
                 }
                 //Muestra en el campo de texto el valor actual de txtNumber.
-                et_number.setText(txtNumber);
+                tw_number.setText(txtNumber);
             }
         });
 
@@ -231,7 +230,7 @@ public class CalculatorActivity extends AppCompatActivity {
                     txtNumber = "0.";
                 }
                 //Muestra en el campo de texto el valor actual de txtNumber.
-                et_number.setText(txtNumber);
+                tw_number.setText(txtNumber);
             }
         });
 
@@ -249,7 +248,7 @@ public class CalculatorActivity extends AppCompatActivity {
                     //Borra el ultimo caracter del string.
                     txtNumber = txtNumber.substring(0, txtNumber.length()-1);
                     //Muestra en el campo de texto el valor actual de txtNumber.
-                    et_number.setText(txtNumber);
+                    tw_number.setText(txtNumber);
                 }
             }
         });
@@ -259,7 +258,7 @@ public class CalculatorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 txtNumber = "";
-                et_number.setText(txtNumber);
+                tw_number.setText(txtNumber);
                 num = 0;
                 lastOperationPressed = -1;
                 hasDot = false;
@@ -282,7 +281,7 @@ public class CalculatorActivity extends AppCompatActivity {
                         if (lastOperationPressed == 1 || lastOperationPressed == -1){
                             num += (Double.valueOf(txtNumber));
                             txtNumber = "";
-                            et_number.setText(txtNumber);
+                            tw_number.setText(txtNumber);
                             testResult.setText(String.valueOf(num));
                         //Sino entra en la funcion lastOperation().
                         }else {
@@ -291,7 +290,7 @@ public class CalculatorActivity extends AppCompatActivity {
                     //Sino borra el numero actual del campo de texto.
                     }else {
                         txtNumber = "";
-                        et_number.setText(txtNumber);
+                        tw_number.setText(txtNumber);
                     }
                     //Da el valor 1(sum) a lastOperationPressed.
                     lastOperationPressed = 1;
@@ -312,7 +311,7 @@ public class CalculatorActivity extends AppCompatActivity {
                         if (lastOperationPressed == 2){
                             num -= (Double.valueOf(txtNumber));
                             txtNumber = "";
-                            et_number.setText(txtNumber);
+                            tw_number.setText(txtNumber);
                             testResult.setText(String.valueOf(num));
                         //Si la ultima operacion presionada fue "none" suma a num el
                         //valor del numero en el campo de texto pues para poder restar
@@ -321,7 +320,7 @@ public class CalculatorActivity extends AppCompatActivity {
                         }else if (lastOperationPressed == -1){
                             num += (Double.valueOf(txtNumber));
                             txtNumber = "";
-                            et_number.setText(txtNumber);
+                            tw_number.setText(txtNumber);
                             testResult.setText(String.valueOf(num));
                         //Sino entra en la funcion lastOperation().
                         }else {
@@ -330,7 +329,7 @@ public class CalculatorActivity extends AppCompatActivity {
                     //Sino borra el numero actual del campo de texto.
                     }else {
                         txtNumber = "";
-                        et_number.setText(txtNumber);
+                        tw_number.setText(txtNumber);
                     }
                     //Da el valor 2(subtraction) a lastOperationPressed.
                     lastOperationPressed = 2;
@@ -351,7 +350,7 @@ public class CalculatorActivity extends AppCompatActivity {
                         if (lastOperationPressed == 3){
                             num *= (Double.valueOf(txtNumber));
                             txtNumber = "";
-                            et_number.setText(txtNumber);
+                            tw_number.setText(txtNumber);
                             testResult.setText(String.valueOf(num));
                         //Si la ultima operacion presionada fue "none" suma a num el
                         //valor del numero en el campo de texto pues para poder multiplicar
@@ -360,7 +359,7 @@ public class CalculatorActivity extends AppCompatActivity {
                         }else if (lastOperationPressed == -1){
                             num += (Double.valueOf(txtNumber));
                             txtNumber = "";
-                            et_number.setText(txtNumber);
+                            tw_number.setText(txtNumber);
                             testResult.setText(String.valueOf(num));
                         //Sino entra en la funcion lastOperation().
                         }else {
@@ -369,7 +368,7 @@ public class CalculatorActivity extends AppCompatActivity {
                     //Sino borra el numero actual del campo de texto.
                     }else {
                         txtNumber = "";
-                        et_number.setText(txtNumber);
+                        tw_number.setText(txtNumber);
                     }
                     //Da el valor 3(multiplication) a lastOperationPressed.
                     lastOperationPressed = 3;
@@ -392,13 +391,13 @@ public class CalculatorActivity extends AppCompatActivity {
                             if (Double.valueOf(txtNumber) != 0){
                                 num /= (Double.valueOf(txtNumber));
                                 txtNumber = "";
-                                et_number.setText(txtNumber);
+                                tw_number.setText(txtNumber);
                                 testResult.setText(String.valueOf(num));
                             //Sino para evitar el resultado Infinity al dividir entre 0, da el valor 0 a
                             //num y vacia el campo de texto y el valor 1(none) a lastOperationPressed.
                             }else {
                                 txtNumber = "";
-                                et_number.setText(txtNumber);
+                                tw_number.setText(txtNumber);
                                 num = 0;
                                 hasDot = false;
                                 dividedByZero = true;
@@ -410,7 +409,7 @@ public class CalculatorActivity extends AppCompatActivity {
                         }else if (lastOperationPressed == -1){
                             num += (Double.valueOf(txtNumber));
                             txtNumber = "";
-                            et_number.setText(txtNumber);
+                            tw_number.setText(txtNumber);
                             testResult.setText(String.valueOf(num));
                         //Sino entra en la funcion lastOperation().
                         }else {
@@ -423,7 +422,7 @@ public class CalculatorActivity extends AppCompatActivity {
                             dividedByZero = false;
                         }
                         txtNumber = "";
-                        et_number.setText(txtNumber);
+                        tw_number.setText(txtNumber);
                     }
                     //Da el valor 4(division) a lastOperationPressed.
                     lastOperationPressed = 4;
@@ -449,17 +448,17 @@ public class CalculatorActivity extends AppCompatActivity {
         });
 
         //Boton temporal hace lo mismo que btn_equals.
-        btn_equals2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!txtNumber.equals("")){
-                    if (lastOperationPressed != 0){
-                        lastOperation(lastOperationPressed);
-                        lastOperationPressed = 0;
-                    }
-                }
-            }
-        });
+//        btn_equals2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (!txtNumber.equals("")){
+//                    if (lastOperationPressed != 0){
+//                        lastOperation(lastOperationPressed);
+//                        lastOperationPressed = 0;
+//                    }
+//                }
+//            }
+//        });
 
     }
 
@@ -496,7 +495,7 @@ public class CalculatorActivity extends AppCompatActivity {
                         num /= Double.valueOf(txtNumber);
                     }else {
                         txtNumber = "";
-                        et_number.setText(txtNumber);
+                        tw_number.setText(txtNumber);
                         num = 0;
                         lastOperationPressed = -1;
                         hasDot = false;
@@ -509,6 +508,6 @@ public class CalculatorActivity extends AppCompatActivity {
         hasEnteredFunction = true;
         testResult.setText(String.valueOf(num));
         txtNumber = String.valueOf(num);
-        et_number.setText(String.valueOf(txtNumber));
+        tw_number.setText(String.valueOf(txtNumber));
     }
 }

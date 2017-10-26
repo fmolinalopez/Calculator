@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Calculator2.0</string>
+    <string name="app_name">Super Calculator</string>
     <string name="txtNumber">Enter a number</string>
     <string name="sum">+</string>
     <string name="subtraction">-</string>

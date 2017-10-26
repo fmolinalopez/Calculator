@@ -4,7 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class CalculatorActivity extends AppCompatActivity {
@@ -61,16 +60,12 @@ public class CalculatorActivity extends AppCompatActivity {
     //Variable que almacena el resultado de las operaciones.
     private double num;
 
-    private TextView testResult;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calculator);
+        setContentView(R.layout.activity_new_calc);
 
         //Inicializacion de variables
-        testResult = (TextView)findViewById(R.id.test);
 
         tw_number = (TextView) findViewById(R.id.etNumber);
 
@@ -264,7 +259,6 @@ public class CalculatorActivity extends AppCompatActivity {
                 hasDot = false;
                 hasEnteredFunction = false;
                 dividedByZero = false;
-                testResult.setText(String.valueOf(num));
             }
         });
 
@@ -282,7 +276,6 @@ public class CalculatorActivity extends AppCompatActivity {
                             num += (Double.valueOf(txtNumber));
                             txtNumber = "";
                             tw_number.setText(txtNumber);
-                            testResult.setText(String.valueOf(num));
                         //Sino entra en la funcion lastOperation().
                         }else {
                             lastOperation(lastOperationPressed);
@@ -312,7 +305,6 @@ public class CalculatorActivity extends AppCompatActivity {
                             num -= (Double.valueOf(txtNumber));
                             txtNumber = "";
                             tw_number.setText(txtNumber);
-                            testResult.setText(String.valueOf(num));
                         //Si la ultima operacion presionada fue "none" suma a num el
                         //valor del numero en el campo de texto pues para poder restar
                         //dos numeros el primer numero debe de ser sumado a num cuyo valor
@@ -321,7 +313,6 @@ public class CalculatorActivity extends AppCompatActivity {
                             num += (Double.valueOf(txtNumber));
                             txtNumber = "";
                             tw_number.setText(txtNumber);
-                            testResult.setText(String.valueOf(num));
                         //Sino entra en la funcion lastOperation().
                         }else {
                             lastOperation(lastOperationPressed);
@@ -351,7 +342,6 @@ public class CalculatorActivity extends AppCompatActivity {
                             num *= (Double.valueOf(txtNumber));
                             txtNumber = "";
                             tw_number.setText(txtNumber);
-                            testResult.setText(String.valueOf(num));
                         //Si la ultima operacion presionada fue "none" suma a num el
                         //valor del numero en el campo de texto pues para poder multiplicar
                         //dos numeros el primer numero debe de ser sumado a num cuyo valor
@@ -360,7 +350,6 @@ public class CalculatorActivity extends AppCompatActivity {
                             num += (Double.valueOf(txtNumber));
                             txtNumber = "";
                             tw_number.setText(txtNumber);
-                            testResult.setText(String.valueOf(num));
                         //Sino entra en la funcion lastOperation().
                         }else {
                             lastOperation(lastOperationPressed);
@@ -392,7 +381,6 @@ public class CalculatorActivity extends AppCompatActivity {
                                 num /= (Double.valueOf(txtNumber));
                                 txtNumber = "";
                                 tw_number.setText(txtNumber);
-                                testResult.setText(String.valueOf(num));
                             //Sino para evitar el resultado Infinity al dividir entre 0, da el valor 0 a
                             //num y vacia el campo de texto y el valor 1(none) a lastOperationPressed.
                             }else {
@@ -410,7 +398,6 @@ public class CalculatorActivity extends AppCompatActivity {
                             num += (Double.valueOf(txtNumber));
                             txtNumber = "";
                             tw_number.setText(txtNumber);
-                            testResult.setText(String.valueOf(num));
                         //Sino entra en la funcion lastOperation().
                         }else {
                             lastOperation(lastOperationPressed);
@@ -501,12 +488,10 @@ public class CalculatorActivity extends AppCompatActivity {
                         hasDot = false;
                         hasEnteredFunction = false;
                         dividedByZero = true;
-                        testResult.setText(String.valueOf(num));
                     }
                     break;
         }
         hasEnteredFunction = true;
-        testResult.setText(String.valueOf(num));
         txtNumber = String.valueOf(num);
         tw_number.setText(String.valueOf(txtNumber));
     }
